@@ -13,7 +13,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		File file = new File("yamate.wav");
+		File file = new File("demo.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
@@ -32,9 +32,16 @@ public class Main {
 			switch(response) {
 				case "P": clip.start();
 				break;
+				case "S": clip.stop();
+				break;
+				case "R": clip.setMicrosecondPosition(0);
+				break;
+				case "Q" : clip.close();
+				break;
 				default: System.out.println("Not a valid response");
-			}
+			}			
 		}
+		System.out.println("is that good :))");
 	}
  
 }
